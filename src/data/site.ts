@@ -159,7 +159,7 @@ export const contactConfig: ContactConfig = {
   phone: "",
   location: "Cairo, Egypt",
   linkedin: "https://www.linkedin.com/in/lara-sameeh-6b07a5312/",
-  cvDownload: "",
-  cvOnline: "",
+  cvDownload: publicAsset("Lara_Sameeh_CV.pdf"),
+  cvOnline: publicAsset("Lara_Sameeh_CV.pdf"),
   behance: "",
 };

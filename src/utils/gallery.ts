@@ -25,5 +25,5 @@ export function getSwipeIntent(startX: number, endX: number): SwipeIntent {
     return "none";
   }
 
-  return delta > 0 ? "next" : "previous";
+  return delta < 0 ? "next" : "previous";
 }

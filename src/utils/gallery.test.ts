@@ -12,7 +12,7 @@ describe("gallery index helpers", () => {
 
   it("ignores tiny swipe movement and detects horizontal direction", () => {
     expect(getSwipeIntent(0, 12)).toBe("none");
-    expect(getSwipeIntent(0, 80)).toBe("next");
-    expect(getSwipeIntent(80, 0)).toBe("previous");
+    expect(getSwipeIntent(0, 80)).toBe("previous");
+    expect(getSwipeIntent(80, 0)).toBe("next");
   });
 });

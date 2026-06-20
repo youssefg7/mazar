@@ -97,7 +97,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
               </dt>
               <dd>
                 <a className="contact-link" href={contact.linkedin} target="_blank" rel="noreferrer">
-                  LinkedIn profile
+                  LinkedIn Profile
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               </dd>
@@ -114,6 +114,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
                 key={action.label}
                 target={action.external ? "_blank" : undefined}
                 rel={action.external ? "noreferrer" : undefined}
+                download={action.download ? true : undefined}
               >
                 {action.label}
                 {action.external ? <ExternalLink size={17} aria-hidden="true" /> : null}

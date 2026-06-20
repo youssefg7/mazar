@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { contactConfig } from "../data/site";
 import { ContactSection } from "./ContactSection";
 
 const baseContact = {
@@ -66,7 +67,7 @@ describe("ContactSection", () => {
     expect(screen.getByRole("link", { name: /larasameeh249@gmail.com/i }).getAttribute("href")).toBe(
       "mailto:larasameeh249@gmail.com"
     );
-    expect(screen.getByRole("link", { name: /LinkedIn profile/i }).getAttribute("href")).toBe(
+    expect(screen.getByRole("link", { name: /LinkedIn Profile/i }).getAttribute("href")).toBe(
       "https://www.linkedin.com/in/lara-sameeh-6b07a5312/"
     );
   });
@@ -79,5 +80,18 @@ describe("ContactSection", () => {
     expect(screen.getByText("Location").classList.contains("contact-label")).toBe(true);
     expect(screen.getByText("Email").classList.contains("contact-label")).toBe(true);
     expect(screen.getByText("LinkedIn").classList.contains("contact-label")).toBe(true);
+  });
+
+  it("renders the configured CV as direct view and download actions", () => {
+    render(<ContactSection contact={contactConfig} />);
+
+    const downloadLink = screen.getByRole("link", { name: /Download CV/i });
+    const viewLink = screen.getByRole("link", { name: /View CV Online/i });
+
+    expect(downloadLink.getAttribute("href")).toBe("/Lara_Sameeh_CV.pdf");
+    expect(downloadLink.hasAttribute("download")).toBe(true);
+    expect(viewLink.getAttribute("href")).toBe("/Lara_Sameeh_CV.pdf");
+    expect(viewLink.getAttribute("target")).toBe("_blank");
+    expect(viewLink.hasAttribute("download")).toBe(false);
   });
 });

@@ -10,6 +10,7 @@ export type ContactAction = {
   href: string;
   label: string;
   external?: boolean;
+  download?: boolean;
 };
 
 export function getContactActions(contact: ContactActionSource): ContactAction[] {
@@ -18,7 +19,8 @@ export function getContactActions(contact: ContactActionSource): ContactAction[]
   if (contact.cvDownload) {
     actions.push({
       href: contact.cvDownload,
-      label: "Download CV"
+      label: "Download CV",
+      download: true
     });
   }
 

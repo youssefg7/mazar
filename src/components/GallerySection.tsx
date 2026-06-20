@@ -12,11 +12,16 @@ type GallerySectionProps = {
   images: GalleryImage[];
 };
 
+function isControlPress(target: EventTarget | null): boolean {
+  return target instanceof Element && target.closest("button") !== null;
+}
+
 export function GallerySection({ id, eyebrow, title, description, images }: GallerySectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [dragOffset, setDragOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const pointerStart = useRef<number | null>(null);
-  const activeImage = images[activeIndex];
   const hasImages = images.length > 0;
 
   const countLabel = useMemo(() => {
@@ -35,6 +40,20 @@ export function GallerySection({ id, eyebrow, title, description, images }: Gall
     setActiveIndex((index) => getPreviousIndex(index, images.length));
   }
 
+  function handlePointerDown(clientX: number) {
+    pointerStart.current = clientX;
+    setDragOffset(0);
+    setIsDragging(true);
+  }
+
+  function handlePointerMove(clientX: number) {
+    if (pointerStart.current === null) {
+      return;
+    }
+
+    setDragOffset(clientX - pointerStart.current);
+  }
+
   function handlePointerUp(clientX: number) {
     if (pointerStart.current === null) {
       return;
@@ -42,6 +61,8 @@ export function GallerySection({ id, eyebrow, title, description, images }: Gall
 
     const intent = getSwipeIntent(pointerStart.current, clientX);
     pointerStart.current = null;
+    setDragOffset(0);
+    setIsDragging(false);
 
     if (intent === "next") {
       goNext();
@@ -50,6 +71,12 @@ export function GallerySection({ id, eyebrow, title, description, images }: Gall
     if (intent === "previous") {
       goPrevious();
     }
+  }
+
+  function handlePointerCancel() {
+    pointerStart.current = null;
+    setDragOffset(0);
+    setIsDragging(false);
   }
 
   return (
@@ -67,14 +94,34 @@ export function GallerySection({ id, eyebrow, title, description, images }: Gall
           <div
             className="gallery__stage"
             onPointerDown={(event) => {
-              pointerStart.current = event.clientX;
+              if (isControlPress(event.target)) {
+                return;
+              }
+
+              event.currentTarget.setPointerCapture?.(event.pointerId);
+              handlePointerDown(event.clientX);
+            }}
+            onPointerMove={(event) => {
+              handlePointerMove(event.clientX);
             }}
             onPointerUp={(event) => handlePointerUp(event.clientX)}
-            onPointerCancel={() => {
-              pointerStart.current = null;
-            }}
+            onPointerCancel={handlePointerCancel}
           >
-            <img src={activeImage.src} alt={activeImage.alt} loading={id === "exterior" ? "eager" : "lazy"} />
+            <div
+              className={isDragging ? "gallery__track gallery__track--dragging" : "gallery__track"}
+              style={{ transform: `translate3d(calc(-${activeIndex * 100}% + ${dragOffset}px), 0, 0)` }}
+            >
+              {images.map((image, index) => (
+                <div className="gallery__slide" key={image.id}>
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    draggable="false"
+                    loading={id === "exterior" && index === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
+            </div>
             <button className="gallery__arrow gallery__arrow--previous" type="button" onClick={goPrevious} aria-label="Previous image">
               <ChevronLeft size={21} aria-hidden="true" />
             </button>
