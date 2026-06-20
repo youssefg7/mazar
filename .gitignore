@@ -4,8 +4,6 @@ dist/
 source-assets/
 .playwright-cli/
 output/
-public/bankgothic-md-bt/
-public/mazar logo*.png
 *.local
 npm-debug.log*
 yarn-debug.log*

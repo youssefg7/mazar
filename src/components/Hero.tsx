@@ -12,6 +12,8 @@ type HeroProps = {
     description: string;
     heroDesktop: string;
     heroMobile: string;
+    logoEmblem: string;
+    logoWordmark: string;
   };
   navItems: NavItem[];
 };
@@ -26,6 +28,10 @@ export function Hero({ config, navItems }: HeroProps) {
       <div className="hero__shade" />
 
       <div className="hero__content">
+        <div className="hero__brand-row">
+          <img className="hero__seal" src={config.logoEmblem} alt="" aria-hidden="true" />
+          <img className="hero__wordmark" src={config.logoWordmark} alt="MAZAR Arabic logo" />
+        </div>
         <p className="hero__kicker">
           {config.projectType} · {config.year} · {config.university}
         </p>

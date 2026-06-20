@@ -4,11 +4,12 @@ import type { NavItem } from "../types";
 
 type HeaderProps = {
   activeSection: string;
+  logoEmblem: string;
   navItems: NavItem[];
   projectName: string;
 };
 
-export function Header({ activeSection, navItems, projectName }: HeaderProps) {
+export function Header({ activeSection, logoEmblem, navItems, projectName }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,9 @@ export function Header({ activeSection, navItems, projectName }: HeaderProps) {
   return (
     <header className="site-header">
       <a className="site-mark" href="#hero" onClick={() => setMenuOpen(false)}>
-        <span className="site-mark__symbol">M</span>
+        <span className="site-mark__symbol">
+          <img src={logoEmblem} alt="" aria-hidden="true" />
+        </span>
         <span>{projectName}</span>
       </a>
 

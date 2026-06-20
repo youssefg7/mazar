@@ -26,6 +26,7 @@ const exteriorImages = [
 
 async function ensureOutputDirs() {
   await Promise.all([
+    mkdir(path.join(publicRoot, "images/brand"), { recursive: true }),
     mkdir(path.join(publicRoot, "images/hero"), { recursive: true }),
     mkdir(path.join(publicRoot, "images/exterior/thumbnails"), { recursive: true }),
     mkdir(path.join(publicRoot, "images/interior/thumbnails"), { recursive: true }),
@@ -59,6 +60,30 @@ async function prepareHero() {
       .resize({ width: 1200, height: 630, fit: "cover", position: "center" })
       .webp({ quality: 82, effort: 4 })
       .toFile(path.join(publicRoot, "images/hero/og-image.webp"))
+  ]);
+}
+
+async function prepareBrand() {
+  const wordmarkInput = path.join(publicRoot, "mazar logo.png");
+  const emblemInput = path.join(publicRoot, "mazar logo 2.png");
+
+  await Promise.all([
+    sharp(wordmarkInput)
+      .resize({ width: 820, withoutEnlargement: true })
+      .webp({ quality: 84, effort: 4 })
+      .toFile(path.join(publicRoot, "images/brand/mazar-wordmark.webp")),
+    sharp(emblemInput)
+      .resize({ width: 520, withoutEnlargement: true })
+      .webp({ quality: 84, effort: 4 })
+      .toFile(path.join(publicRoot, "images/brand/mazar-emblem.webp")),
+    sharp(emblemInput)
+      .resize({ width: 512, height: 512, fit: "contain", background: { r: 11, g: 13, b: 14, alpha: 1 } })
+      .png({ compressionLevel: 9 })
+      .toFile(path.join(publicRoot, "images/brand/mazar-favicon.png")),
+    sharp(emblemInput)
+      .resize({ width: 180, height: 180, fit: "contain", background: { r: 11, g: 13, b: 14, alpha: 1 } })
+      .png({ compressionLevel: 9 })
+      .toFile(path.join(publicRoot, "images/brand/mazar-touch-icon.png"))
   ]);
 }
 
@@ -99,6 +124,7 @@ async function preparePannellumVendor() {
 }
 
 await ensureOutputDirs();
+await prepareBrand();
 await prepareHero();
 await prepareExterior();
 await prepareInteriorAndPanorama();

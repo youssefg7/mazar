@@ -51,7 +51,12 @@ export default function App() {
 
   return (
     <>
-      <Header activeSection={activeSection} navItems={navItems} projectName={siteConfig.projectName} />
+      <Header
+        activeSection={activeSection}
+        logoEmblem={siteConfig.logoEmblem}
+        navItems={navItems}
+        projectName={siteConfig.projectName}
+      />
       <main>
         <Hero config={siteConfig} navItems={navItems} />
         <GallerySection

@@ -10,6 +10,8 @@ export const siteConfig = {
   university: "Ain Shams University",
   description:
     "An immersive maritime museum where Suez's cultural memory, craft, water, and heritage are transformed into a contemporary architectural experience.",
+  logoWordmark: publicAsset("images/brand/mazar-wordmark.webp"),
+  logoEmblem: publicAsset("images/brand/mazar-emblem.webp"),
   heroDesktop: publicAsset("images/hero/hero-desktop.webp"),
   heroMobile: publicAsset("images/hero/hero-mobile.webp")
 };
