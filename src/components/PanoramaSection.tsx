@@ -14,10 +14,8 @@ export function PanoramaSection({ mapImage, hotspots }: PanoramaSectionProps) {
     <section className="section panorama-section" id="panorama" aria-labelledby="panorama-title">
       <div className="section__header section__header--wide">
         <p className="section__eyebrow">360 Experience</p>
-        <h2 id="panorama-title">Enter the exhibition hall through fixed points</h2>
-        <p>
-          Click a cyan point on the museum image to open the fullscreen panorama. The tour loads only when requested.
-        </p>
+        <h2 id="panorama-title">Enter the exhibition hall in 360 immersive experience</h2>
+
       </div>
 
       <div className="panorama-map">
