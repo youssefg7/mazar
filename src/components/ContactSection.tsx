@@ -25,19 +25,13 @@ export function ContactSection({ contact }: ContactSectionProps) {
 
   return (
     <section className="section contact-section" id="contact" aria-labelledby="contact-title">
-      <div className="section__header">
-        <p className="section__eyebrow">Graduate Architect Contact / CV</p>
-        <h2 id="contact-title">Project owner</h2>
-        <p>Portfolio contact details and professional links.</p>
-      </div>
-
       <div className="contact-panel">
         <div className="contact-card">
           <div className={contact.photo ? "contact-avatar contact-avatar--photo" : "contact-avatar"}>
             {contact.photo ? <img src={contact.photo} alt={photoAlt} /> : <span aria-hidden="true">{getInitials(contact.name)}</span>}
           </div>
           <div>
-            <h3>{contact.name}</h3>
+            <h2 id="contact-title">{contact.name}</h2>
             <p>{contact.role}</p>
           </div>
         </div>

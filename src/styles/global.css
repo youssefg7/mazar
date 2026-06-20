@@ -899,8 +899,12 @@ img {
   object-fit: cover;
 }
 
-.contact-card h3 {
+.contact-card h2 {
+  margin: 0;
+  font-family: var(--display-font);
   font-size: 1.55rem;
+  font-weight: 650;
+  line-height: 1.02;
 }
 
 .contact-card p {

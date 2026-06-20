@@ -17,6 +17,15 @@ const baseContact = {
 };
 
 describe("ContactSection", () => {
+  it("uses Lara's name as the section heading without project-owner intro copy", () => {
+    render(<ContactSection contact={baseContact} />);
+
+    expect(screen.getByRole("region", { name: "Lara Sameeh" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Lara Sameeh", level: 2 })).toBeTruthy();
+    expect(screen.queryByText("Project owner")).toBeNull();
+    expect(screen.queryByText("Portfolio contact details and professional links.")).toBeNull();
+  });
+
   it("renders a configured portrait instead of initials", () => {
     render(
       <ContactSection

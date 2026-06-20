@@ -152,7 +152,7 @@ export const bannerConfig: BannerConfig = {
 export const contactConfig: ContactConfig = {
   name: "Lara Sameeh",
   role: "Architecture Graduate",
-  photo: "",
+  photo: publicAsset("images/contact/lara_sameeh.png"),
   photoAlt: "Portrait of Lara Sameeh",
   email: "larasameeh249@gmail.com",
   phone: "",
