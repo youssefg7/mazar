@@ -31,6 +31,9 @@ export function Hero({ config }: HeroProps) {
         <p className="hero__kicker">
           {config.projectType} · {config.year} · {config.university}
         </p>
+        <p className="hero__kicker">
+          {config.owner} · 21P0018
+        </p>
         <h1 id="hero-title">
           <span>{config.projectName}</span>
           <strong>{config.projectSubtitle}</strong>

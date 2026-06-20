@@ -4,7 +4,7 @@ import { contactConfig } from "../data/site";
 import { ContactSection } from "./ContactSection";
 
 const baseContact = {
-  name: "Lara Sameeh",
+  name: "Lara Sameeh Shoukry",
   role: "Housing Architecture and Urban Development Graduate",
   email: "larasameeh249@gmail.com",
   phone: "",
@@ -22,8 +22,8 @@ describe("ContactSection", () => {
   it("keeps the contact eyebrow and removes only the project-owner intro copy", () => {
     render(<ContactSection contact={baseContact} />);
 
-    expect(screen.getByRole("region", { name: "Lara Sameeh" })).toBeTruthy();
-    expect(screen.getByRole("heading", { name: "Lara Sameeh", level: 2 }).closest(".section__header")).toBeTruthy();
+    expect(screen.getByRole("region", { name: "Lara Sameeh Shoukry" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Lara Sameeh Shoukry", level: 2 }).closest(".section__header")).toBeTruthy();
     expect(screen.getByText("Graduate Architect Contact / CV")).toBeTruthy();
     expect(screen.queryByText("Project owner")).toBeNull();
     expect(screen.queryByText("Portfolio contact details and professional links.")).toBeNull();
@@ -35,12 +35,12 @@ describe("ContactSection", () => {
         contact={{
           ...baseContact,
           photo: "/images/contact/lara-sameeh.webp",
-          photoAlt: "Portrait of Lara Sameeh"
+          photoAlt: "Portrait of Lara Sameeh Shoukry"
         }}
       />
     );
 
-    expect(screen.getByRole("img", { name: "Portrait of Lara Sameeh" }).getAttribute("src")).toBe(
+    expect(screen.getByRole("img", { name: "Portrait of Lara Sameeh Shoukry" }).getAttribute("src")).toBe(
       "/images/contact/lara-sameeh.webp"
     );
   });
@@ -51,12 +51,12 @@ describe("ContactSection", () => {
         contact={{
           ...baseContact,
           photo: "/images/contact/lara-sameeh.webp",
-          photoAlt: "Portrait of Lara Sameeh"
+          photoAlt: "Portrait of Lara Sameeh Shoukry"
         }}
       />
     );
 
-    expect(screen.getByRole("img", { name: "Portrait of Lara Sameeh" }).parentElement?.classList.contains("contact-avatar--portrait")).toBe(
+    expect(screen.getByRole("img", { name: "Portrait of Lara Sameeh Shoukry" }).parentElement?.classList.contains("contact-avatar--portrait")).toBe(
       true
     );
   });

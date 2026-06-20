@@ -6,7 +6,7 @@ export const siteConfig = {
   projectSubtitle: "Maritime Museum",
   projectType: "Architecture Graduation Project",
   year: "2026",
-  owner: "Lara Sameeh",
+  owner: "Lara Sameeh Shoukry",
   university: "Ain Shams University",
   description:
     "An immersive maritime museum where Suez's cultural memory, craft, water, and heritage are transformed into a contemporary experience.",
