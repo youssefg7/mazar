@@ -12,8 +12,8 @@ export const siteConfig = {
     "An immersive maritime museum where Suez's cultural memory, craft, water, and heritage are transformed into a contemporary experience.",
   logoWordmark: publicAsset("images/brand/mazar-wordmark.webp"),
   logoEmblem: publicAsset("images/brand/mazar-emblem.webp"),
-  heroDesktop: publicAsset("maritime_museum_cinematic_sunset_4k_banner.png"),
-  heroMobile: publicAsset("maritime_museum_cinematic_sunset_4k_banner.png")
+  heroDesktop: publicAsset("images/hero/hero-desktop.webp"),
+  heroMobile: publicAsset("images/hero/hero-mobile.webp")
 };
 
 export const navItems: NavItem[] = [
