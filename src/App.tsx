@@ -16,11 +16,13 @@ import {
   panoramaMapImage,
   siteConfig
 } from "./data/site";
+import { applyTheme, getInitialTheme, getNextTheme, persistTheme, type ThemeMode } from "./utils/theme";
 
 const observedSections = ["hero", ...navItems.map((item) => item.id)];
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
+  const [theme, setTheme] = useState<ThemeMode>(() => getInitialTheme());
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -49,28 +51,35 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    applyTheme(theme);
+    persistTheme(theme);
+  }, [theme]);
+
   return (
     <>
       <Header
         activeSection={activeSection}
         logoEmblem={siteConfig.logoEmblem}
         navItems={navItems}
+        onThemeToggle={() => setTheme((currentTheme) => getNextTheme(currentTheme))}
         projectName={siteConfig.projectName}
+        theme={theme}
       />
       <main>
-        <Hero config={siteConfig} navItems={navItems} />
+        <Hero config={siteConfig} />
         <GallerySection
           id="exterior"
           eyebrow="Exterior Renders"
           title="The museum as a coastal threshold"
-          description="A horizontal sequence of arrival views, roof studies, public edges, and waterfront moments."
+          description="Arrival views, roof studies, public edges, and waterfront moments."
           images={exteriorImages}
         />
         <GallerySection
           id="interior"
           eyebrow="Interior Renders"
           title="A route through maritime memory"
-          description="The interior gallery begins with the main hall and can expand as more rendered scenes are added."
+          description="The main hall sequence, ready to expand as more interior renders are added."
           images={interiorImages}
         />
         <PanoramaSection mapImage={panoramaMapImage} hotspots={panoramaHotspots} />

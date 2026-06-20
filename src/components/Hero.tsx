@@ -1,6 +1,3 @@
-import { ArrowDown, Compass } from "lucide-react";
-import type { NavItem } from "../types";
-
 type HeroProps = {
   config: {
     projectName: string;
@@ -15,10 +12,9 @@ type HeroProps = {
     logoEmblem: string;
     logoWordmark: string;
   };
-  navItems: NavItem[];
 };
 
-export function Hero({ config, navItems }: HeroProps) {
+export function Hero({ config }: HeroProps) {
   return (
     <section className="hero" id="hero" aria-labelledby="hero-title">
       <picture className="hero__image">
@@ -40,24 +36,6 @@ export function Hero({ config, navItems }: HeroProps) {
           <strong>{config.projectSubtitle}</strong>
         </h1>
         <p className="hero__statement">{config.description}</p>
-        <div className="hero__actions">
-          <a className="button button--primary" href="#exterior">
-            Explore Project
-            <ArrowDown size={17} aria-hidden="true" />
-          </a>
-          <a className="button button--secondary" href="#panorama">
-            Open 360 Experience
-            <Compass size={17} aria-hidden="true" />
-          </a>
-        </div>
-      </div>
-
-      <div className="hero__feature-nav" aria-label="Project sections">
-        {navItems.map((item) => (
-          <a href={`#${item.id}`} key={item.id}>
-            {item.label}
-          </a>
-        ))}
       </div>
     </section>
   );

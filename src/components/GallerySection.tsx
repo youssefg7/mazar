@@ -93,7 +93,6 @@ export function GallerySection({ id, eyebrow, title, description, images }: Gall
 
           <div className="gallery__meta">
             <span>{countLabel}</span>
-            <p>{activeImage.caption}</p>
           </div>
 
           <div className="gallery__thumbs" aria-label={`${eyebrow} thumbnails`}>

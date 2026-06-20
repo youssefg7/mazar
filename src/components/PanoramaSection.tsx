@@ -1,4 +1,3 @@
-import { Maximize2 } from "lucide-react";
 import { useState } from "react";
 import type { PanoramaHotspot } from "../types";
 import { PanoramaViewer } from "./PanoramaViewer";
@@ -36,11 +35,6 @@ export function PanoramaSection({ mapImage, hotspots }: PanoramaSectionProps) {
             <span className="hotspot__label">{hotspot.label}</span>
           </button>
         ))}
-      </div>
-
-      <div className="panorama-callout">
-        <Maximize2 size={18} aria-hidden="true" />
-        <span>Fullscreen panorama with drag, touch, and zoom controls.</span>
       </div>
 
       {selectedHotspot ? <PanoramaViewer hotspot={selectedHotspot} onClose={() => setSelectedHotspot(null)} /> : null}

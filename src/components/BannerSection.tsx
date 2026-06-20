@@ -20,18 +20,16 @@ export function BannerSection({ config }: BannerSectionProps) {
           ) : (
             <div className="banner-preview__placeholder" aria-label="Banner preview pending">
               <span>MAZAR</span>
-              <strong>2 × 3 m presentation banner</strong>
-              <p>Preview file pending</p>
+              <strong>Presentation board</strong>
             </div>
           )}
         </div>
 
         <div className="banner-content">
           <p className="section__eyebrow">Graduation Banner</p>
-          <h2 id="banner-title">High-resolution presentation board</h2>
+          <h2 id="banner-title">Presentation board</h2>
           <p>
-            The site is ready to show a compressed preview and link to print-ready PDF or JPG downloads without loading them
-            on the main page.
+            A compressed preview and print-ready downloads can be linked here without slowing down the main page.
           </p>
           <div className="banner-actions">
             {hasPreview ? (
@@ -39,11 +37,7 @@ export function BannerSection({ config }: BannerSectionProps) {
                 Preview Banner
                 <ExternalLink size={17} aria-hidden="true" />
               </a>
-            ) : (
-              <button className="button button--secondary" type="button" disabled>
-                Preview Pending
-              </button>
-            )}
+            ) : null}
             {hasPdf ? (
               <a className="button button--primary" href={config.pdf} download>
                 Download PDF

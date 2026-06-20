@@ -14,7 +14,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
       <div className="section__header">
         <p className="section__eyebrow">Contact / CV</p>
         <h2 id="contact-title">Project owner</h2>
-        <p>Professional links and downloadable files can be updated from one data file when final details are ready.</p>
+        <p>Portfolio contact details and professional links.</p>
       </div>
 
       <div className="contact-panel">
@@ -48,15 +48,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
                 <a href={`mailto:${contact.email}`}>{contact.email}</a>
               </dd>
             </div>
-          ) : (
-            <div>
-              <dt>
-                <Mail size={17} aria-hidden="true" />
-                Email
-              </dt>
-              <dd>Ready to add</dd>
-            </div>
-          )}
+          ) : null}
           {contact.phone ? (
             <div>
               <dt>
@@ -70,18 +62,22 @@ export function ContactSection({ contact }: ContactSectionProps) {
           ) : null}
         </dl>
 
-        <div className="contact-actions">
-          {actions.length > 0 ? (
-            actions.map((action) => (
-              <a className="button button--secondary" href={action.href} key={action.label} target={action.external ? "_blank" : undefined} rel={action.external ? "noreferrer" : undefined}>
+        {actions.length > 0 ? (
+          <div className="contact-actions">
+            {actions.map((action) => (
+              <a
+                className="button button--secondary"
+                href={action.href}
+                key={action.label}
+                target={action.external ? "_blank" : undefined}
+                rel={action.external ? "noreferrer" : undefined}
+              >
                 {action.label}
                 {action.external ? <ExternalLink size={17} aria-hidden="true" /> : null}
               </a>
-            ))
-          ) : (
-            <p className="contact-note">Add email, LinkedIn, and CV paths in `src/data/site.ts` to activate contact buttons.</p>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : null}
       </div>
     </section>
   );
