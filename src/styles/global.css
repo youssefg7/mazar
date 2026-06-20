@@ -894,15 +894,24 @@ img {
 }
 
 .contact-avatar--photo {
-  flex-basis: 118px;
-  width: 118px;
-  height: 118px;
+  flex-basis: 132px;
+  width: 132px;
+  height: 132px;
+}
+
+.contact-avatar--portrait {
+  aspect-ratio: 1325 / 1537;
+  height: auto;
 }
 
 .contact-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.contact-avatar--portrait img {
+  object-fit: contain;
 }
 
 .contact-card__role {

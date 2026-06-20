@@ -44,6 +44,22 @@ describe("ContactSection", () => {
     );
   });
 
+  it("uses a portrait-specific photo frame for configured architect images", () => {
+    render(
+      <ContactSection
+        contact={{
+          ...baseContact,
+          photo: "/images/contact/lara-sameeh.webp",
+          photoAlt: "Portrait of Lara Sameeh"
+        }}
+      />
+    );
+
+    expect(screen.getByRole("img", { name: "Portrait of Lara Sameeh" }).parentElement?.classList.contains("contact-avatar--portrait")).toBe(
+      true
+    );
+  });
+
   it("shows email and LinkedIn as direct contact links", () => {
     render(<ContactSection contact={baseContact} />);
 
@@ -58,7 +74,8 @@ describe("ContactSection", () => {
   it("marks contact label words separately so mobile can show icon and content only", () => {
     render(<ContactSection contact={baseContact} />);
 
-    expect(document.querySelectorAll(".contact-label")).toHaveLength(3);
+    expect(document.querySelectorAll(".contact-label")).toHaveLength(4);
+    expect(screen.getByText("University").classList.contains("contact-label")).toBe(true);
     expect(screen.getByText("Location").classList.contains("contact-label")).toBe(true);
     expect(screen.getByText("Email").classList.contains("contact-label")).toBe(true);
     expect(screen.getByText("LinkedIn").classList.contains("contact-label")).toBe(true);

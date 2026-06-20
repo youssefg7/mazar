@@ -32,7 +32,7 @@ export function ContactSection({ contact }: ContactSectionProps) {
 
       <div className="contact-panel">
         <div className="contact-card">
-          <div className={contact.photo ? "contact-avatar contact-avatar--photo" : "contact-avatar"}>
+          <div className={contact.photo ? "contact-avatar contact-avatar--photo contact-avatar--portrait" : "contact-avatar"}>
             {contact.photo ? <img src={contact.photo} alt={photoAlt} /> : <span aria-hidden="true">{getInitials(contact.name)}</span>}
           </div>
           <div>
