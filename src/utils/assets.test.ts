@@ -12,8 +12,8 @@ describe("resolvePublicPath", () => {
     expect(resolvePublicPath("https://example.com/banner.pdf", "/mazar/")).toBe(
       "https://example.com/banner.pdf"
     );
-    expect(resolvePublicPath("mailto:youssef@example.com", "/mazar/")).toBe(
-      "mailto:youssef@example.com"
+    expect(resolvePublicPath("mailto:larasameeh249@gmail.com", "/mazar/")).toBe(
+      "mailto:larasameeh249@gmail.com"
     );
   });
 
