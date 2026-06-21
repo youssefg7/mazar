@@ -28,7 +28,6 @@ describe("App", () => {
     expect(navLinks.map((link) => link.textContent)).toEqual(["Contact"]);
     expect(hero.compareDocumentPosition(wait) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
     expect(wait.compareDocumentPosition(contact) & Node.DOCUMENT_POSITION_FOLLOWING).not.toBe(0);
-    expect(screen.getByText(/The full MAZAR walkthrough is docking here next week/i)).not.toBeNull();
     expect(screen.queryByRole("region", { name: "Museum Walkthrough" })).toBeNull();
     expect(screen.queryByRole("region", { name: "Enter the exhibition hall in 360 immersive experience" })).toBeNull();
     expect(screen.queryByRole("region", { name: "The museum as a coastal threshold" })).toBeNull();

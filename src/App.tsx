@@ -16,8 +16,7 @@ function WaitSection() {
         <p className="section__eyebrow">Temporary hold</p>
         <h2 id="wait-title">Wait for it</h2>
         <p>
-          The full MAZAR walkthrough is docking here next week. For now, the museum keeps its reveal under wraps:
-          one hero image, one quiet pause, and Lara's contact details below.
+          Coming soon on Jury day!
         </p>
         <div className="wait-line" aria-hidden="true">
           <span />
