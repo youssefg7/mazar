@@ -763,9 +763,9 @@ img {
 }
 
 .panorama-map > img {
+  display: block;
   width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
+  height: auto;
 }
 
 .hotspot {
@@ -853,6 +853,17 @@ img {
   font-size: clamp(1.4rem, 3vw, 2.1rem);
 }
 
+.panorama-viewer__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panorama-viewer__vr-button {
+  min-height: 44px;
+  padding: 0 14px;
+}
+
 .panorama-viewer__canvas {
   position: relative;
   min-height: 0;
@@ -881,6 +892,82 @@ img {
 .panorama-viewer__description {
   margin: 12px 0 0;
   color: var(--immersive-muted);
+}
+
+.vr-box-message {
+  position: fixed;
+  z-index: 110;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  align-content: center;
+  padding: 24px;
+  background: rgba(5, 6, 7, 0.84);
+  color: var(--immersive-text);
+  text-align: center;
+}
+
+.vr-box-message p {
+  max-width: 320px;
+  margin: 0;
+  color: var(--immersive-muted);
+  font-size: 1rem;
+}
+
+.vr-box-viewer {
+  position: fixed;
+  z-index: 110;
+  inset: 0;
+  overflow: hidden;
+  background: #050607;
+  color: var(--immersive-text);
+}
+
+.vr-box-viewer__eyes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.vr-box-viewer__eye {
+  min-width: 0;
+  min-height: 100%;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  background: #050607;
+}
+
+.vr-box-viewer__eye:last-child {
+  border-right: 0;
+}
+
+.vr-box-viewer__prompt {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  align-content: center;
+  padding: 24px;
+  background: rgba(5, 6, 7, 0.86);
+  text-align: center;
+}
+
+.vr-box-viewer__prompt p {
+  margin: 0;
+  font-size: clamp(1.5rem, 6vw, 2.4rem);
+}
+
+.vr-box-viewer__prompt span {
+  max-width: 320px;
+  color: var(--immersive-muted);
+}
+
+.vr-box-viewer__error {
+  color: var(--error);
 }
 
 .banner-panel,
@@ -1140,8 +1227,7 @@ img {
     padding-inline: 20px;
   }
 
-  .gallery__stage,
-  .panorama-map > img {
+  .gallery__stage {
     aspect-ratio: 4 / 3;
   }
 

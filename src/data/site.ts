@@ -108,38 +108,56 @@ export const interiorImages: GalleryImage[] = [
   }
 ];
 
-export const panoramaMapImage = publicAsset("images/panorama/panorama-map.webp");
+export const panoramaMapImage = publicAsset("images/360/base.webp");
 
 export const panoramaHotspots: PanoramaHotspot[] = [
   {
-    id: "main-hall",
-    label: "Main Hall",
-    x: 30,
-    y: 58,
-    panorama: publicAsset("panos/pano-main-hall.jpg"),
-    description: "Explore the central museum hall and maritime heritage displays.",
-    yaw: -55,
-    pitch: -6
+    id: "underwaters",
+    label: "Underwater Passage",
+    x: 8.5526,
+    y: 55.4729,
+    panorama: publicAsset("images/360/underwaters.png"),
+    description: "Move through the underwater gallery and submerged maritime atmosphere."
   },
   {
-    id: "canal-memory",
-    label: "Suez Memory Wall",
-    x: 66,
-    y: 55,
-    panorama: publicAsset("panos/pano-main-hall.jpg"),
-    description: "Look toward the Suez Canal history wall and holographic exhibits.",
-    yaw: 42,
-    pitch: -4
+    id: "circle",
+    label: "Circular Gallery",
+    x: 17.9426,
+    y: 71.7322,
+    panorama: publicAsset("images/360/circle.png"),
+    description: "Explore the circular exhibition chamber and its wrapped display route."
   },
   {
-    id: "roof-light",
-    label: "Kinetic Roof",
-    x: 47,
-    y: 28,
-    panorama: publicAsset("panos/pano-main-hall.jpg"),
-    description: "Study the interior roof curve and the filtered light over the exhibition route.",
-    yaw: 5,
-    pitch: 18
+    id: "hologram",
+    label: "Hologram Exhibit",
+    x: 31.6986,
+    y: 56.3231,
+    panorama: publicAsset("images/360/hologram.png"),
+    description: "Stand inside the hologram exhibit and view the layered maritime displays."
+  },
+  {
+    id: "statue",
+    label: "Statue Gallery",
+    x: 41.866,
+    y: 49.9469,
+    panorama: publicAsset("images/360/statue.png"),
+    description: "Look around the statue gallery and central museum artifacts."
+  },
+  {
+    id: "tree",
+    label: "Tree Atrium",
+    x: 48.445,
+    y: 42.508,
+    panorama: publicAsset("images/360/tree.png"),
+    description: "Enter the planted atrium where the exhibition path opens around the tree."
+  },
+  {
+    id: "movies",
+    label: "Immersive Theater",
+    x: 59.8086,
+    y: 47.8215,
+    panorama: publicAsset("images/360/movies.png"),
+    description: "Step into the cinematic theater zone for the museum's immersive media experience."
   }
 ];
 

@@ -36,3 +36,13 @@ describe("section spacing", () => {
     expect(getPxProperty(sectionBody, "scroll-margin-top")).toBeLessThanOrEqual(76);
   });
 });
+
+describe("panorama map", () => {
+  it("does not crop the final coordinate map", () => {
+    const mapImageBody = getRuleBody(".panorama-map > img");
+
+    expect(mapImageBody).toContain("display: block;");
+    expect(mapImageBody).not.toContain("aspect-ratio");
+    expect(mapImageBody).not.toContain("object-fit: cover");
+  });
+});
