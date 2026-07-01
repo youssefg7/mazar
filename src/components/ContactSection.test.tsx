@@ -13,6 +13,7 @@ const baseContact = {
   linkedin: "https://www.linkedin.com/in/lara-sameeh-6b07a5312/",
   cvDownload: "",
   cvOnline: "",
+  portfolio: "",
   behance: "",
   photo: "",
   photoAlt: ""
@@ -91,6 +92,19 @@ describe("ContactSection", () => {
     expect(viewLink.getAttribute("href")).toBe("/Lara_Sameeh_CV.pdf");
     expect(viewLink.getAttribute("target")).toBe("_blank");
     expect(viewLink.hasAttribute("download")).toBe(false);
+  });
+
+  it("renders the configured portfolio as a direct view action next to the CV", () => {
+    render(<ContactSection contact={contactConfig} />);
+
+    const cvLink = screen.getByRole("link", { name: "View Lara's CV" });
+    const portfolioLink = screen.getByRole("link", { name: "View Lara's Portfolio" });
+    const actions = Array.from(document.querySelectorAll(".contact-actions a"));
+
+    expect(actions).toEqual([cvLink, portfolioLink]);
+    expect(portfolioLink.getAttribute("href")).toBe("/final-portfolio-v1.pdf");
+    expect(portfolioLink.getAttribute("target")).toBe("_blank");
+    expect(portfolioLink.hasAttribute("download")).toBe(false);
   });
 
   it("renders the configured mobile number as a phone link", () => {

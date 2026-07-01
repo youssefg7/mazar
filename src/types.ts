@@ -42,5 +42,6 @@ export type ContactConfig = {
   linkedin: string;
   cvDownload: string;
   cvOnline: string;
+  portfolio: string;
   behance: string;
 };

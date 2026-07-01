@@ -209,5 +209,6 @@ export const contactConfig: ContactConfig = {
   linkedin: "https://www.linkedin.com/in/lara-sameeh-6b07a5312/",
   cvDownload: "",
   cvOnline: publicAsset("Lara_Sameeh_CV.pdf"),
+  portfolio: publicAsset("final-portfolio-v1.pdf"),
   behance: "",
 };

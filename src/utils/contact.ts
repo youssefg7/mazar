@@ -4,6 +4,7 @@ export type ContactActionSource = {
   phone: string;
   cvDownload: string;
   cvOnline: string;
+  portfolio: string;
 };
 
 export type ContactAction = {
@@ -20,6 +21,14 @@ export function getContactActions(contact: ContactActionSource): ContactAction[]
     actions.push({
       href: cvHref,
       label: "View Lara's CV",
+      external: true
+    });
+  }
+
+  if (contact.portfolio) {
+    actions.push({
+      href: contact.portfolio,
+      label: "View Lara's Portfolio",
       external: true
     });
   }
